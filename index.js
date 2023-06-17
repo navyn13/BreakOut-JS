@@ -8,7 +8,7 @@ const boardWidth = 560
 const boardHeight = 400
 const diameter = 30
 
-const random=2
+const random=Math.random() +2
 
 
 
