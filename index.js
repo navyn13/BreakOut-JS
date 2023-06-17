@@ -136,12 +136,13 @@ function checkForCollision() {
                 allBlocks[i].classList.remove('block')
                 blocks.splice(i,1)
                 changeDirection()
+                score++
                 if(score===20){
                     clearInterval(timerId)
                     const won= new Audio("mixkit-ethereal-fairy-win-sound-2019.wav")
                     won.play()
                 }
-                score++
+                
             }
     }
     // user hit
