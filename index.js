@@ -8,12 +8,12 @@ const boardWidth = 560
 const boardHeight = 400
 const diameter = 30
 
-const random=Math.random() +2
+const randomx=Math.random()+2
+const randomy= 2
 
 
-
-let xDirection = random
-let yDirection = random
+let xDirection = randomx
+let yDirection = randomy
 
 let userStart = [230, 10]
 let currentPosition = userStart
@@ -157,20 +157,20 @@ function checkForCollision() {
 
 // create funtion to change direction
 function changeDirection(){
-    if (xDirection === random && yDirection === random) {
-        yDirection = -random
+    if (xDirection === randomx && yDirection === randomy) {
+        yDirection = -randomy
         return
       }
-      if (xDirection === random && yDirection === -random) {
-        xDirection = -random
+      if (xDirection === randomx && yDirection === -randomy) {
+        xDirection = -randomx
         return
       }
-      if (xDirection === -random && yDirection === -random) {
-        yDirection = random
+      if (xDirection === -randomx && yDirection === -randomy) {
+        yDirection = randomy
         return
       }
-      if (xDirection === -random && yDirection === random) {
-        xDirection = random
+      if (xDirection === -randomx && yDirection === randomy) {
+        xDirection = randomx
         return
       }
     
