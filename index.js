@@ -126,18 +126,22 @@ let timerId = setInterval(moveBall, 15)
 function checkForCollision() {
     // check for block hit
     for(let i=0; i<blocks.length; i++){
-        if(ballCurrentPosition[0]> blocks[i].bottomLeft[0] && ballCurrentPosition[0]<blocks[i].bottomRight[0] &&
+        if(ballCurrentPosition[0]>= blocks[i].bottomLeft[0]-diameter && ballCurrentPosition[0]<blocks[i].bottomRight[0] &&
             (ballCurrentPosition[1]+ diameter)>=blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[1]
             ){
+                var soundGlass= new Audio("glass-breaking-93803.mp3")
+                soundGlass.play()
+
                 const allBlocks = Array.from(document.querySelectorAll('.block'))
                 allBlocks[i].classList.remove('block')
                 blocks.splice(i,1)
                 changeDirection()
-                score++
                 if(score===20){
-                    alert('YOU WON THE GAME')
                     clearInterval(timerId)
+                    const won= new Audio("mixkit-ethereal-fairy-win-sound-2019.wav")
+                    won.play()
                 }
+                score++
             }
     }
     // user hit
@@ -150,8 +154,10 @@ function checkForCollision() {
     }
     // game over
     if(ballCurrentPosition[1] <= 0){
+        const gameOver= new Audio("mixkit-arcade-retro-game-over-213.wav")
+        gameOver.play()
         clearInterval(timerId)
-        alert('YOU LOSE')
+        
     }
 }
 
